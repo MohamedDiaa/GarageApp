@@ -1,37 +1,51 @@
 ﻿using System;
 using GarageApp.Sevices;
+using GarageApp.Util;
 
 namespace GarageApp.Vehicle
 {
-	public abstract class Vehicle: IVehicle
+    public abstract class Vehicle : IVehicle
     {
-        string Registreringsnumber { get; }
-        ConsoleColor color { get; }
-
-        int NumberOfEngines { get;  }
-        double CylinderVolume { get;  }
-        FuelType fuel { get;  }
-        int NumberOfSeats { get; }
-        int Lenght { get;}
-
+        private string registreringsnumber;
+        private ConsoleColor color;
+        private int numberOfEngines;
+        private double cylinderVolume;
+        private FuelType fuel;
+        private int numberOfSeats;
+        private Dimension dimension;
 
 
-    public Vehicle(string Registreringsnumber,
-        ConsoleColor color,
-        int NumberOfEngines,
-        double CylinderVolume,
-        FuelType fuel,
-        int NumberOfSeats, int Lenght
-)
+        public Vehicle(string registreringsnumber,
+            ConsoleColor color,
+            int numberOfEngines,
+            double cylinderVolume,
+            FuelType fuel,
+            int numberOfSeats,
+            Dimension dimension
+    )
         {
-            this.Registreringsnumber = Registreringsnumber;
+            this.registreringsnumber = registreringsnumber;
             this.color = color;
-            this.NumberOfEngines = NumberOfEngines;
-            this.CylinderVolume = CylinderVolume;
+            this.numberOfEngines = numberOfEngines;
+            this.cylinderVolume = cylinderVolume;
             this.fuel = fuel;
-            this.NumberOfSeats = NumberOfSeats;
-            this.Lenght = Lenght;
-		}
-	}
+            this.numberOfSeats = numberOfSeats;
+            this.dimension = dimension;
+        }
+
+        public string Registreringsnumber => this.registreringsnumber;
+
+        public int NumberOfEngines => this.numberOfEngines;
+
+        public double CylinderVolume => this.cylinderVolume;
+
+        public int NumberOfSeats => this.numberOfSeats;
+
+        public Dimension Dimension => this.Dimension;
+
+        ConsoleColor IVehicle.color => this.color;
+
+        FuelType IVehicle.Fuel => this.fuel;
+    }
 }
 

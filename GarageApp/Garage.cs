@@ -9,12 +9,38 @@ namespace GarageApp
 		uint capacity;
 		private IVehicle[] vehicles;
 			 
-		public Garage(uint capacity)
+		public Garage(uint capacity, IVehicle[] initalVehicles)
 		{
 			this.capacity = capacity;
-			vehicles = new Vehicle.Vehicle[capacity];
+			vehicles = new Vehicle.Vehicle[capacity + 1];
+
+            if(initalVehicles.Count() <= capacity) { 
+
+
+            }
+        }
+
+		public IVehicle[] ParkedList() {
+
+			return vehicles.Where(c => c != null).ToArray();
 
         }
-	}
+
+
+		public void addVehicle(IVehicle vehicle) {
+
+		}
+
+        public IVehicle removeVehicle()
+        {
+			throw new NotImplementedException("to be done");
+        }
+
+		public IVehicle find(string registerationNumber) {
+
+            throw new NotImplementedException("to be done");
+
+        }
+    }
 }
 

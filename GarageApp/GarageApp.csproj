@@ -10,9 +10,11 @@
   <ItemGroup>
     <None Remove="Vehicle\" />
     <None Remove="Sevices\" />
+    <None Remove="Util\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Vehicle\" />
     <Folder Include="Sevices\" />
+    <Folder Include="Util\" />
   </ItemGroup>
 </Project>
