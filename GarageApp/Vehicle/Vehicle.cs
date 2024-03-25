@@ -41,7 +41,7 @@ namespace GarageApp.Vehicle
 
         public int NumberOfSeats => this.numberOfSeats;
 
-        public Dimension Dimension => this.Dimension;
+        public Dimension Dimensions => this.dimension;
 
         ConsoleColor IVehicle.color => this.color;
 

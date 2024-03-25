@@ -16,7 +16,7 @@ namespace GarageApp.Sevices
         public double CylinderVolume { get; }
         public FuelType Fuel { get; }
         public int NumberOfSeats { get; }
-        public Dimension Dimension { get; }
+        public Dimension Dimensions { get; }
 
     }
 }
