@@ -3,54 +3,54 @@ using GarageApp.Vehicle;
 using GarageApp.Sevices;
 using System.Collections;
 using System.Collections.Generic;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GarageApp
 {
 	public class Garage<T> : IEnumerable<T> where T: IVehicle
 	{
 		uint capacity;
-		private T[] vehicles;
+		private T?[] vehicles;
 
 
         public Garage(uint capacity)
         {
             this.capacity = capacity;
-            this.vehicles = new T[capacity + 1];
+            this.vehicles = new T[0];
         }
 
         public Garage(uint capacity, T[] initalVehicles)
 		{
 			this.capacity = capacity;
-			this.vehicles = new T[capacity + 1];
+			this.vehicles = initalVehicles;
         }
 
         public T[] ParkedList() {
 
-			return vehicles.Where(c => c != null).ToArray();
+            return vehicles.Where(c => c != null).ToArray();
         }
 
 
-		public Boolean add(T item) {
+		public void add(T item) {
 
-            for (int index = 0; index < capacity; index++) {
-               var v = vehicles[index];
-                if (v == null) {
-                    vehicles[index] = item;
-                    return true;
-                }
+            if (vehicles.Count() >= capacity) {
+                throw new ArgumentException("Garage is full");
             }
 
-            return false;
-		}
+            this.vehicles = (T?[])vehicles.Append(item).ToArray();
+    	}
 
-        public IVehicle removeVehicle()
+        public void removeItem(string registerationNumber)
         {
-			throw new NotImplementedException("to be done");
+            var vehicle = find(registerationNumber);
+
+            var index = Array.IndexOf(vehicles, vehicle);
+          //  vehicles[index] = null;
         }
 
-		public IVehicle find(string registerationNumber) {
+        public T find(string registerationNumber) {
 
-            throw new NotImplementedException("to be done");
+          return vehicles.Where(p => p.Registreringsnumber == registerationNumber).First();
 
         }
 

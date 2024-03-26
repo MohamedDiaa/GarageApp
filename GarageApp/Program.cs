@@ -10,7 +10,7 @@ class Program
     {
         Console.WriteLine("Hello, World!");
 
-        Garage<IVehicle> vechiles = new(capacity: 10);
+        Garage<IVehicle> vechiles = new(capacity: 2);
         var c1 = new Car(
             registreringsnumber: "2123123",
             color: ConsoleColor.Black,
@@ -43,8 +43,13 @@ class Program
 
         vechiles.add(c1);
         vechiles.add(c2);
-        vechiles.add(c3);
 
+        try
+        {
+            vechiles.add(c3);
+        }
+        catch {
+        }
 
         foreach (IVehicle v in vechiles) {
             Console.WriteLine(v.Registreringsnumber);
