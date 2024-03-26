@@ -31,7 +31,7 @@ namespace GarageApp
         }
 
 
-		public void add(T item) {
+		public void Add(T item) {
 
             if (vehicles.Count() >= capacity) {
                 throw new ArgumentException("Garage is full");
@@ -40,17 +40,17 @@ namespace GarageApp
             this.vehicles = (T?[])vehicles.Append(item).ToArray();
     	}
 
-        public void removeItem(string registerationNumber)
+        public void RemoveItem(string registerationNumber)
         {
-            var vehicle = find(registerationNumber);
+            var vehicle = Find(registerationNumber);
 
             var index = Array.IndexOf(vehicles, vehicle);
           //  vehicles[index] = null;
         }
 
-        public T find(string registerationNumber) {
+        public T Find(string registerationNumber) {
 
-          return vehicles.Where(p => p.Registreringsnumber == registerationNumber).First();
+          return vehicles.Where(p => p.Registreringsnumber.ToLower() == registerationNumber.ToLower()).First();
 
         }
 

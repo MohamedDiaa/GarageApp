@@ -17,7 +17,7 @@ namespace GarageApp
             garage = new(capacity: capacity, initalVehicles: initalVehicles);
         }
 
-        public void listAllVehicles() {
+        public void ListAllVehicles() {
 
             Console.WriteLine("list all vehicles");
 
@@ -33,25 +33,28 @@ namespace GarageApp
         }
 
 
-        public void listAllVehiclesTypes() {
+        public void ListAllVehiclesTypes() {
             // TO do
         }
 
 
-        public void addVehicle(IVehicle v) {
+        public void AddVehicle(IVehicle v) {
 
             try
             {
-                garage.add(v);
+                garage.Add(v);
             }
             catch {
             }
         }
 
-        public void removeVehicle(string registerationNumber) {
+        public void RemoveVehicle(string registerationNumber) {
 
-            garage.removeItem(registerationNumber: registerationNumber);
+            garage.RemoveItem(registerationNumber: registerationNumber);
         }
+
+        public IVehicle Find(string registerationNumber) => garage.Find(registerationNumber: registerationNumber);
+
     }
 
 }

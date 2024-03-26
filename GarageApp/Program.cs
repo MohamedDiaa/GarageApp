@@ -11,9 +11,8 @@ class Program
         Console.WriteLine("Hello, World!");
 
 
-        GarageHandler hanedler = new GarageHandler(capacity: 3);
 
-        var c1 = new Car(
+        IVehicle c1 = new Car(
             registreringsnumber: "2123123",
             color: ConsoleColor.Black,
             numberOfEngines: 3,
@@ -23,7 +22,7 @@ class Program
             dimension: new Dimension(width: 100, height: 100)
             );
 
-        var c2 = new Car(
+        IVehicle c2 = new Car(
          registreringsnumber: "2123124",
          color: ConsoleColor.Black,
          numberOfEngines: 3,
@@ -33,7 +32,7 @@ class Program
          dimension: new Dimension(width: 100, height: 100)
          );
 
-        var c3 = new Car(
+        IVehicle c3 = new Car(
          registreringsnumber: "2123125",
          color: ConsoleColor.Black,
          numberOfEngines: 3,
@@ -43,11 +42,15 @@ class Program
          dimension: new Dimension(width: 100, height: 100)
          );
 
-        hanedler.addVehicle(c1);
-        hanedler.addVehicle(c2);
-        hanedler.addVehicle(c3);
+        IVehicle[] vs = new IVehicle[] { c1, c2, c3 };
 
-        hanedler.listAllVehicles();
+        GarageHandler hanedler = new GarageHandler(capacity: 4, initalVehicles: vs);
+
+        
+        hanedler.ListAllVehicles();
+
+        IVehicle cx = hanedler.Find(registerationNumber: "2123125");
+        Console.WriteLine(cx.GetType());
     }
 }
 
