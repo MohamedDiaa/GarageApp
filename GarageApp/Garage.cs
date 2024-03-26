@@ -9,7 +9,7 @@ namespace GarageApp
 {
 	public class Garage<T> : IEnumerable<T> where T: IVehicle
 	{
-		uint capacity;
+		private uint capacity;
 		private T?[] vehicles;
 
 

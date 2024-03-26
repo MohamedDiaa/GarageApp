@@ -5,12 +5,54 @@ namespace GarageApp
 {
 	public class GarageHandler
 	{
-		Garage<IVehicle> vechiles;
+		private Garage<IVehicle> garage;
 
         public GarageHandler(uint capacity)
 		{
-            vechiles = new(capacity: capacity);
+            garage = new(capacity: capacity);
         }
-	}
+
+        public GarageHandler(uint capacity, IVehicle[] initalVehicles)
+        {
+            garage = new(capacity: capacity, initalVehicles: initalVehicles);
+        }
+
+        public void listAllVehicles() {
+
+            Console.WriteLine("list all vehicles");
+
+            foreach (IVehicle v in garage) {
+
+                try
+                {
+                    Console.WriteLine(v.Registreringsnumber);
+                }
+                catch {
+                }
+            }
+        }
+
+
+        public void listAllVehiclesTypes() {
+            // TO do
+        }
+
+
+        public void addVehicle(IVehicle v) {
+
+            try
+            {
+                garage.add(v);
+            }
+            catch {
+            }
+        }
+
+        public void removeVehicle(string registerationNumber) {
+
+            garage.removeItem(registerationNumber: registerationNumber);
+        }
+    }
+
 }
 

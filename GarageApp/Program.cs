@@ -10,7 +10,9 @@ class Program
     {
         Console.WriteLine("Hello, World!");
 
-        Garage<IVehicle> vechiles = new(capacity: 2);
+
+        GarageHandler hanedler = new GarageHandler(capacity: 3);
+
         var c1 = new Car(
             registreringsnumber: "2123123",
             color: ConsoleColor.Black,
@@ -41,19 +43,11 @@ class Program
          dimension: new Dimension(width: 100, height: 100)
          );
 
-        vechiles.add(c1);
-        vechiles.add(c2);
+        hanedler.addVehicle(c1);
+        hanedler.addVehicle(c2);
+        hanedler.addVehicle(c3);
 
-        try
-        {
-            vechiles.add(c3);
-        }
-        catch {
-        }
-
-        foreach (IVehicle v in vechiles) {
-            Console.WriteLine(v.Registreringsnumber);
-        }
+        hanedler.listAllVehicles();
     }
 }
 
