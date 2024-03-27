@@ -45,7 +45,8 @@ namespace GarageApp
             var vehicle = Find(registerationNumber);
 
             var index = Array.IndexOf(vehicles, vehicle);
-          //  vehicles[index] = null;
+            //  vehicles[index] = null;
+            this.vehicles = vehicles.Where(p => p.Registreringsnumber.ToLower() != registerationNumber.ToLower()).ToArray();
         }
 
         public T Find(string registerationNumber) {

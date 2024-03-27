@@ -51,6 +51,10 @@ class Program
 
         IVehicle cx = hanedler.Find(registerationNumber: "2123125");
         Console.WriteLine(cx.GetType());
+
+        hanedler.RemoveVehicle(registerationNumber: "2123123");
+        hanedler.ListAllVehicles();
+
     }
 }
 
