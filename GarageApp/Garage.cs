@@ -66,6 +66,32 @@ namespace GarageApp
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
 
+        public Dictionary<string, int> ListAllVehiclesTypes()
+        {
+            // TO do
+
+            Dictionary<string, int> dic = new();
+
+            foreach (var item in vehicles)
+            {
+                var s = item.GetType().ToString();
+
+                try
+                {
+                    dic[s] = dic[s] + 1;
+                }
+                catch {
+
+                    dic[s] = 1;
+                }
+                //if dic[s] != null {
+                //}
+                //else {
+                //    dic[s] = 1;
+                //}
+            }
+            return dic;
+        }
     }
 }
 

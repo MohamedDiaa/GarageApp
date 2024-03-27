@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using GarageApp.Sevices;
 
 namespace GarageApp
@@ -35,6 +36,11 @@ namespace GarageApp
 
         public void ListAllVehiclesTypes() {
             // TO do
+
+           var dic =  garage.ListAllVehiclesTypes();
+            foreach((string s, int count) in dic) {
+                Console.WriteLine($"type {s} occurs {count}");
+            }
         }
 
 

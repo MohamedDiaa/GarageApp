@@ -18,7 +18,7 @@ class Program
             numberOfEngines: 3,
             cylinderVolume: 100,
             fuel: FuelType.Diesel,
-            numberOfSeats:4,
+            numberOfSeats: 4,
             dimension: new Dimension(width: 100, height: 100)
             );
 
@@ -42,11 +42,34 @@ class Program
          dimension: new Dimension(width: 100, height: 100)
          );
 
-        IVehicle[] vs = new IVehicle[] { c1, c2, c3 };
+
+        IVehicle c4 = new Boat(
+         registreringsnumber: "Boat2123127",
+         color: ConsoleColor.Black,
+         numberOfEngines: 3,
+         cylinderVolume: 100,
+         fuel: FuelType.Diesel,
+         numberOfSeats: 4,
+         dimension: new Dimension(width: 100, height: 100)
+         );
+
+
+        IVehicle c5 = new Bus(
+     registreringsnumber: "Buss2123125",
+     color: ConsoleColor.Black,
+     numberOfEngines: 3,
+     cylinderVolume: 100,
+     fuel: FuelType.Diesel,
+     numberOfSeats: 4,
+     dimension: new Dimension(width: 100, height: 100)
+     );
+
+
+        IVehicle[] vs = new IVehicle[] { c1, c2, c3, c4 ,c5 };
 
         GarageHandler hanedler = new GarageHandler(capacity: 4, initalVehicles: vs);
 
-        
+
         hanedler.ListAllVehicles();
 
         IVehicle cx = hanedler.Find(registerationNumber: "2123125");
@@ -55,6 +78,7 @@ class Program
         hanedler.RemoveVehicle(registerationNumber: "2123123");
         hanedler.ListAllVehicles();
 
+        hanedler.ListAllVehiclesTypes();
     }
 }
 
